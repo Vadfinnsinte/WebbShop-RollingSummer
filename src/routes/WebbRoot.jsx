@@ -2,6 +2,7 @@ import logo from "../assets/rolerblade.svg"
 import cart from "../assets/yellowCart.svg"
 import searchLogo from "../assets/Search.svg"
 import filterIcon from "../assets/filter.svg"
+import RenderProducts from "../components/RenderProducts"
 
 const WebbRoot = () => {
     
@@ -19,8 +20,6 @@ const WebbRoot = () => {
             <div className="filter-bar">
                 <img className="filter-bar-logos" src={searchLogo} />
                 <select className="dropdown">
-                    Kategorier
-                    {/* <option>Kategorier</option> */}
                     <option>Alla produkter</option>
                     <option>Rollerblades</option>
                     <option>Skateboards</option>
@@ -28,6 +27,7 @@ const WebbRoot = () => {
                 </select>
                 <img className="filter-bar-logos" src={filterIcon} /> 
             </div> 
+            <RenderProducts/>
         </main>
         
         <footer>

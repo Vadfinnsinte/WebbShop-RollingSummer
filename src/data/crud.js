@@ -5,10 +5,9 @@ const collectionName = "RollingSummerProducts"
 
 async function getProducts() {
     const productCollection = collection(db, collectionName)
-    const collectionSnapshot = await getDocs(movieCollection)
-    console.log("snapshot is: ", collectionSnapshot);
+    const collectionSnapshot = await getDocs(productCollection)
     const productList = collectionSnapshot.docs.map(doc => withKey(doc))
-    return movieList
+    return productList
 }
 
 function withKey(doc) {

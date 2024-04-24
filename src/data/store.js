@@ -9,3 +9,5 @@ const useProductStore = create(set => ({
 
 
 }))
+
+export {useProductStore}
