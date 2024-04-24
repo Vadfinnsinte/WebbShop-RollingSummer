@@ -1,7 +1,6 @@
+import { Outlet, NavLink } from "react-router-dom"
 import logo from "../assets/rolerblade.svg"
 import cart from "../assets/yellowCart.svg"
-import searchLogo from "../assets/Search.svg"
-import filterIcon from "../assets/filter.svg"
 import RenderProducts from "../components/RenderProducts"
 
 const WebbRoot = () => {
@@ -14,21 +13,14 @@ const WebbRoot = () => {
             <img className="logo" src={logo} />
             <h2 className="RollingSummer-placement">RollingSummer</h2>
         </section>
-        <img className="cart-icon" src={cart} />
+         {/* <img className="cart-icon" src={cart} /> */}
+         <NavLink to="/varukorg" className="cart-icon-navlink" >
+            <img className="cart-icon"  src={cart} />
+        </NavLink> 
         </header>
-        <main>
-            <div className="filter-bar">
-                <img className="filter-bar-logos" src={searchLogo} />
-                <select className="dropdown">
-                    <option>Alla produkter</option>
-                    <option>Rollerblades</option>
-                    <option>Skateboards</option>
-                    <option>Tillbehör</option>
-                </select>
-                <img className="filter-bar-logos" src={filterIcon} /> 
-            </div> 
-            <RenderProducts/>
-        </main>
+    
+         <Outlet/>
+        
         
         <footer>
         

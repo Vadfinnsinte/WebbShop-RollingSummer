@@ -23,8 +23,10 @@ body {
     grid-template-columns: 2fr 1fr;
     font-family: var(--font-family-sister);
     color: var(--accent-color);
-   
     padding: 1em;
+}
+.RollingSummer-placement {
+    margin-top: 0.6em;
 }
 .logo-name {
     display: grid;
@@ -37,22 +39,10 @@ body {
     margin: 0;
     
 }
-.cart-icon {
+.cart-icon-navlink{
     place-self: end;
     align-self: start;
+}
+.cart-icon {
     width: 30px;
-}
-.filter-bar {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.5em;
-}
-.dropdown {
-    background-color: var(--bg-color-header);
-    color: var(--accent-color);
-    font-family: var(--font-family-sister);
-}
-.filter-bar-logos {
-    width: 20px;
-    margin: 0.5em;
 }
