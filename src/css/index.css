@@ -1,0 +1,58 @@
+:root {
+    --bg-color-header: #1E1E1E; 
+    --accent-color: #C4EF67;
+    --font-family-sister: "Love Ya Like A Sister", cursive;
+    --font-family-kranky:  "Kranky", serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: var(--bg-color-header);
+    /* display: flex;
+    flex-direction: row; */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    font-family: var(--font-family-sister);
+    color: var(--accent-color);
+   
+    padding: 1em;
+}
+.logo-name {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.RollingSummer-placement {
+    align-self: start;
+    margin: 0.2em;
+}
+.logo {
+    width: 60px;
+    height: auto;
+    margin: 0;
+    
+}
+.cart-icon {
+    place-self: end;
+    align-self: start;
+    width: 30px;
+}
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+}
+.dropdown {
+    background-color: var(--bg-color-header);
+    color: var(--accent-color);
+    font-family: var(--font-family-sister);
+}
+.filter-bar-logos {
+    width: 20px;
+    margin: 0.5em;
+}
