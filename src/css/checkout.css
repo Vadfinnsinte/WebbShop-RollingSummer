@@ -1,0 +1,33 @@
+:root {
+    --bg-color-header: #1E1E1E; 
+    --accent-color: #C4EF67;
+    --font-family-sister: "Love Ya Like A Sister", cursive;
+    --font-family-kranky:  "Kranky", serif;
+    --body-bg-color: #E4E6C4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.checkout-layout {
+    margin: 0.5em;
+}
+
+.checkout-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0.5em;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 10px 2px #606152;
+    border-radius: 10px;
+    padding: 0.5em;
+}
+.checkout-card > *{
+    margin: 0;
+}
+
+.checkout-img {
+    width: 101px;
+    grid-row: span 3;
+}

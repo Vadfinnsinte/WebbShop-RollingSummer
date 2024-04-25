@@ -10,8 +10,9 @@ const useProductStore = create(set => ({
     })),
 
     addTocheckoutList: (prod) => set((state => {
-        const foundProduct = state.listOfProducts.find((product) => product.name === prod.name)
+        let foundProduct = state.listOfProducts.find((product) => product.name === prod.name)
         console.log(foundProduct);
+        foundProduct = { ...foundProduct, quantity: 1 }
         console.log(state.checkoutList);
         
         return {checkoutList: [...state.checkoutList, foundProduct]}

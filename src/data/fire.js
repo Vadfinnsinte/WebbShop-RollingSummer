@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore/lite";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyC1VZnenaKsFA1oj6R2_B6LoC1yMWQrB5Q",
   authDomain: "summerwebbshop.firebaseapp.com",
