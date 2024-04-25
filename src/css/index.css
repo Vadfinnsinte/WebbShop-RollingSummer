@@ -27,6 +27,7 @@ body {
 }
 .RollingSummer-placement {
     margin-top: 0.6em;
+    /* visibility: hidden; */
 }
 .logo-name {
     display: grid;
@@ -41,7 +42,7 @@ body {
 }
 .cart-icon-navlink{
     place-self: end;
-    align-self: start;
+    align-self: center;
 }
 .cart-icon {
     width: 30px;

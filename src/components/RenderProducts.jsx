@@ -17,12 +17,14 @@ const RenderProducts = () => {
     // useEffect(() => {
         const fetchProducts = async () => {
             try {
-                setListOfProducts(await getProducts())
+                let testVariable = await getProducts()
+                setListOfProducts(testVariable)
+                console.log("fetchproduct, testV: ",testVariable);
             } catch {
                 console.log("något gick fel");
             }
         }
-        // fetchProducts()
+    //     fetchProducts()
     // }, [])
 
  // TODO: Lääg till function för filtrering. 
@@ -48,6 +50,7 @@ const RenderProducts = () => {
              <img className="product-img" key={p.key} src={p.picture} />
                 <h2>{p.name}</h2>
                 <p>{p.price} kr</p>
+
                 <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>
             </section>
            ))}
