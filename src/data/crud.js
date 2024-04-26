@@ -18,8 +18,9 @@ function withKey(doc) {
 	return id
 }
 async function addProduct(product) {
-	await addDoc(productCollectionRef, employee)
+	await addDoc(productCollectionRef, product)
 }
+
 
 async function deleteProduct(key) {
     try {
