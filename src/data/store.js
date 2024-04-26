@@ -5,6 +5,7 @@ const useProductStore = create(set => ({
     checkoutList: [],
     chekoutTotal: 0,
     isLoggedIn: true,
+    isAdding: false,
     
     setListOfProducts: newList => set(state => ({
         listOfProducts: newList
@@ -52,6 +53,10 @@ const useProductStore = create(set => ({
         )
     })),
    
+    setIsAdding: (bool) => set(state => ({
+        isAadding: bool
+    }
+    ))
 
 }))
 
