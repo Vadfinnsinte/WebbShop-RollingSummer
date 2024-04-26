@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs, updateDoc, deleteDoc } from "firebase/firestore/lite"
+import { addDoc, collection, getDocs, updateDoc, deleteDoc, doc } from "firebase/firestore/lite"
 import { db } from "./fire"
 
 
@@ -28,6 +28,7 @@ async function deleteProduct(key) {
         const documentRef = doc(productCollectionRef, key)
         console.log("deletedProd: ", documentRef);
         await deleteDoc(documentRef)
+        
 
     }catch {
         console.log("Gick inte");
