@@ -67,3 +67,19 @@
     box-shadow: 0px 2px 10px 2px #606152;
     cursor: pointer;
 }
+.add-product-btn {
+    background-color: var(--accent-color);
+    font-family: var(--font-family-sister);
+    padding: 0.5em;
+    border-radius: 10px;
+    margin-top: 0.5em;
+}
+.edit-icons {
+    display:flex;
+    gap: 9em;
+}
+.edit-icons p{
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+}
+

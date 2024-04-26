@@ -12,8 +12,17 @@
 
 .checkout-layout {
     margin: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+.checkout-layout h4,  .checkout-layout h1{
+    font-family: var(--font-family-sister);
 }
 
+.checkout-layout h1, p {
+    place-self: center;
+}
 .checkout-card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -22,6 +31,7 @@
     box-shadow: 0px 2px 10px 2px #606152;
     border-radius: 10px;
     padding: 0.5em;
+    max-width: 20em;
 }
 .checkout-card > *{
     margin: 0;
@@ -30,4 +40,16 @@
 .checkout-img {
     width: 101px;
     grid-row: span 3;
+}
+.checkout-buy-btn {
+    background-color: var(--accent-color);
+    font-family: var(--font-family-sister);
+    padding: 0.5em;
+    border-radius: 10px;
+    max-width: 7em;
+    place-self: center;
+}
+.checkout-buy-btn:hover {
+    box-shadow: 0px 2px 10px 2px #606152;
+    cursor: pointer;
 }

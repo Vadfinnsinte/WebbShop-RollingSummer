@@ -1,0 +1,42 @@
+:root {
+    --bg-color-header: #1E1E1E; 
+    --accent-color: #C4EF67;
+    --font-family-sister: "Love Ya Like A Sister", cursive;
+    --font-family-kranky:  "Kranky", serif;
+    --body-bg-color: #E4E6C4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.login-main{
+    background-color: var(--bg-color-header);
+    color: rgb(216, 214, 214);
+    font-family: var(--font-family-sister);
+    padding: 2em;
+    margin: 4em 1em;
+}
+.login-form button {
+    border-radius: 5px;
+    padding: 0.4em;
+    background-color: var(--accent-color);
+}
+
+.login-form button:hover {
+    box-shadow: 0px 2px 10px 2px #606152;
+    cursor: pointer;
+}
+
+.login-label-input {
+    display: flex;
+    flex-direction: column;
+    max-width: 13em;
+    margin-bottom: 1em;
+}
+.login-label-input input {
+    margin-top: 0.3em;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    padding: 0.6em;
+}

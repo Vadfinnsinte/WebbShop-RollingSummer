@@ -2,6 +2,7 @@ import { createHashRouter } from "react-router-dom";
 import WebbRoot from "./WebbRoot.jsx";
 import RenderChecout from "../components/RenderCheckout.jsx";
 import RenderProducts from "../components/RenderProducts.jsx";
+import LogIn from "../components/LogIn.jsx";
 
 const router = createHashRouter([
     {
@@ -14,12 +15,12 @@ const router = createHashRouter([
         },
         {
             path: "/login",
-            element: ""
+            element: <LogIn/>
         },
         {
             path: "/produktsida-admin",
             element: ""
-        },
+        }, //TODO, tabort
         {
             path: "/produkt",
             element: ""

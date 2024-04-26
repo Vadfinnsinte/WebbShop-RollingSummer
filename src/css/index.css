@@ -9,6 +9,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -46,4 +47,12 @@ body {
 }
 .cart-icon {
     width: 30px;
+}
+.footer {
+    background-color: var(--bg-color-header);
+    padding: 1em;
+    margin-top: 1em;
+}
+.login-icon {
+    width: 35px;
 }

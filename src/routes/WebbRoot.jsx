@@ -1,10 +1,14 @@
 import { Outlet, NavLink } from "react-router-dom"
 import logo from "../assets/rolerblade.svg"
 import cart from "../assets/yellowCart.svg"
+
 import RenderProducts from "../components/RenderProducts"
+import { useProductStore } from "../data/store"
 
 const WebbRoot = () => {
-    
+    const { addToCheckoutTotal} = useProductStore(state => ({
+        addToCheckoutTotal: state.addToCheckoutTotal
+    }))
     
     return (
         <>
@@ -15,17 +19,14 @@ const WebbRoot = () => {
         </section>
          {/* <img className="cart-icon" src={cart} /> */}
          <NavLink to="/varukorg" className="cart-icon-navlink" >
-            <img className="cart-icon"  src={cart} />
+            <img className="cart-icon" src={cart} onClick={addToCheckoutTotal}/>
         </NavLink> 
         </header>
     
          <Outlet/>
         
         
-        <footer>
-        
-        
-        </footer>
+
         </>
     )
 }
