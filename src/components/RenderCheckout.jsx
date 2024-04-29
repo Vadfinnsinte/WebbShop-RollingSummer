@@ -25,9 +25,11 @@ const RenderChecout = () => {
         
              </section>
              ))}
-        
+        <section className="checkout-total-section">
         <p>Totalt att betala: {chekoutTotal} Kr</p>
         <button className="checkout-buy-btn" onClick={emtyCheckout}>Slutför köp</button>
+
+        </section>
     
     
     

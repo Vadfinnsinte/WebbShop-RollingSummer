@@ -54,9 +54,9 @@ const RenderProducts = () => {
 
     return (
         <>
-        <main>
-        <div className="product-card-layout">
+        <main className="main-product-employee">
            {isLoggedIn && <button className="add-product-btn" disabled={isAdding} onClick={() => setIsAdding(true)}>Lägg till produkt</button>}
+        <div className="product-card-layout">
            {isAdding && 
 
         <AddProduct setIsAdding={setIsAdding} />
@@ -72,7 +72,8 @@ const RenderProducts = () => {
                 <h2>{p.name}</h2>
                 <p>{p.price} kr</p>
 
-                {!isLoggedIn && <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>}
+                <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>
+                {/* {!isLoggedIn && <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>} */}
                 {isEdeting && 
                  <EditProduct product = {p} setIsEdeting={setIsEdeting}/> 
                 }
