@@ -9,10 +9,9 @@ const AddProduct = ( {setIsAdding}) => {
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [category, setCategory] = useState("")
-    // const {setIsAdding} = useProductStore(state => ({
-    //     setIsAdding: state.setIsAdding
-    // }))
-    
+    const {setListOfProducts} = useProductStore(state => ({
+        setListOfProducts: state.setListOfProducts
+    }))
 
     const handleAddProduct = async (event) => {
         const newProduct = {name: name, picture: picture, description: description, price: price, category: category}

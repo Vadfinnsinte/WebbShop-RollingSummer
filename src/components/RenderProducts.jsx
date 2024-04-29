@@ -7,10 +7,12 @@ import searchLogo from "../assets/Search.svg"
 import filterIcon from "../assets/filter.svg"
 import { NavLink } from "react-router-dom"
 import AddProduct from "./AddProduct"
+import EditProduct from "./EditProduct"
 
 const RenderProducts = () => {
     
     const [isAdding, setIsAdding] = useState(false)
+    const [isEdeting, setIsEdeting] = useState(false)
     const {listOfProducts, setListOfProducts, addTocheckoutList,  isLoggedIn} = useProductStore(state => ({
         listOfProducts: state.listOfProducts,
         setListOfProducts: state.setListOfProducts,
@@ -46,6 +48,9 @@ const RenderProducts = () => {
         console.log("något gick fel");
     }
  }
+ const handelEditProduct = async (prod) => {
+    setIsEdeting(true)
+ }
 
     return (
         <>
@@ -61,13 +66,16 @@ const RenderProducts = () => {
                 {isLoggedIn && <
                     div className="edit-icons">
                         <p onClick={() => handelDeleteProduct(p)}> 🗑️</p>
-                        <p>🖊️</p>
+                        <p onClick={() => handelEditProduct(p)}>🖊️</p>
                      </div>}
              <img className="product-img" key={p.key} src={p.picture} />
                 <h2>{p.name}</h2>
                 <p>{p.price} kr</p>
 
-                <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>
+                {!isLoggedIn && <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>}
+                {isEdeting && 
+                 <EditProduct product = {p} setIsEdeting={setIsEdeting}/> 
+                }
             </section>
            ))}
         </div>
