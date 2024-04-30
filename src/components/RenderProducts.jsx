@@ -70,8 +70,8 @@ const RenderProducts = () => {
                      </div>}
              <img className="product-img" key={p.key} src={p.picture} />
                 <h2>{p.name}</h2>
-                <p>{p.price} kr</p>
-
+                <p>{p.price} Kr</p>
+                    <p>{p.description}</p>
                 <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>
                 {/* {!isLoggedIn && <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>} */}
                 {isEdeting && 

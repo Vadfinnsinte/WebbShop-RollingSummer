@@ -48,6 +48,7 @@
     box-shadow: 0px 2px 10px 2px #606152;
     border-radius: 14px;
     padding: 1em;
+    margin: 1em;
 }
 .product-card h2 {
    margin: 0.3em 0 0 0;
@@ -110,6 +111,23 @@
 .edit-icons p{
     margin-top: 0.2em;
     margin-bottom: 0.5em;
+}
+.placeholder {
+    visibility: hidden;
+    margin: 0.5em 0 0 0  ;
+    font-size: 14px;
+}
+.error {
+    visibility: visible;
+    margin:  0.5em 0 0 0  ;
+    color: rgb(179, 42, 42);
+    font-size: 14px;
+}
+.input-error {
+    border: 2px solid rgb(179, 42, 42);
+}
+.input-correct{
+    border: 2px solid var(--accent-color);
 }
 
 @media (min-width: 550px) {

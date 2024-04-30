@@ -20,7 +20,7 @@
     font-family: var(--font-family-sister);
 }
 
-.checkout-layout h1, p {
+.checkout-layout h1, .checkout-layout p {
     place-self: center;
 }
 .checkout-card {

@@ -22,7 +22,7 @@ const RenderChecout = () => {
                 <h4>{prod.name}</h4>
                 <p>{prod.price} Kr</p>
                 <p>Antal: {prod.quantity} </p>
-        
+                {/* //TODO: tabortknapp */}
              </section>
              ))}
         <section className="checkout-total-section">
