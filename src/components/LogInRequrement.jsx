@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useProductStore } from '../data/store';
 
 const ProtectedRoute = ({ children }) => {
-  const isLoggedIn = ValidationInlog(state => state.isLoggedIn);
+  const isLoggedIn = useProductStore(state => state.isLoggedIn);
   const navigate = useNavigate();
 
   useEffect(() => { 

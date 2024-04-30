@@ -1,6 +1,6 @@
 export const handleValidation = (event, errors, setErrors) => {
     const {name, value } = event.target
-    console.log("name: ", name, "value: ", value);
+    
     let error = ""
     switch (name) {
         case 'name':

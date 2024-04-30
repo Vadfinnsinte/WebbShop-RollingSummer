@@ -43,28 +43,29 @@ const AddProduct = ( {setIsAdding} ) => {
      return (
         <section className="add-product-section">
             <div className="add-product-form">
+            <h1 className="form-h1">Lägg till</h1>
                 <label>Bildlänk:</label>
                 <input className={errors.picture ? "input-error" : "input-correct" } name="picture" type="text" value={picture} onChange={e => setPicture(e.target.value)} onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
                 <p className={errors.picture ? 'error' : 'placeholder'}>{errors.picture ? errors.picture : 'Placeholder text'}</p>
             </div>
             <div className="add-product-form">
                 <label>Namn:</label>
-                <input name="name" type="text" value={name} onChange={e => setName(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
+                <input className={errors.name ? "input-error" : "input-correct" } name="name" type="text" value={name} onChange={e => setName(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
                 <p className={errors.name ? 'error' : 'placeholder'}>{errors.name ? errors.name : 'Placeholder text'}</p>
             </div>
             <div className="add-product-form">
                 <label>Kategori:</label>
-                <input name="category" type="text" value={category} onChange={e => setCategory(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)} ></input>
+                <input className={errors.category ? "input-error" : "input-correct" } name="category" type="text" value={category} onChange={e => setCategory(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)} ></input>
                 <p className={errors.category ? 'error' : 'placeholder'}>{errors.category ? errors.category : 'Placeholder text'}</p>
             </div>
             <div className="add-product-form">
                 <label>Pris:</label>
-                <input name="price" type="number" value={price} onChange={e => setPrice(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
+                <input className={errors.price ? "input-error" : "input-correct" } name="price" type="number" value={price} onChange={e => setPrice(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
                 <p className={errors.price ? 'error' : 'placeholder'}>{errors.price ? errors.price : 'Placeholder text'}</p>
             </div>
             <div className="add-product-form">
                 <label>Beskrivning:</label>
-                <input name="description" type="text" value={description} onChange={e => setDescription(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
+                <input className={errors.description ? "input-error" : "input-correct" } name="description" type="text" value={description} onChange={e => setDescription(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
                 <p className={errors.description ? 'error' : 'placeholder'}>{errors.description ? errors.description : 'Placeholder text'}</p>
             </div>
             <button disabled= {!newProduct.name || !newProduct.picture || !newProduct.description || !newProduct.category || !newProduct.price} className="add-btn" onClick={handleAddProduct}>Spara</button>

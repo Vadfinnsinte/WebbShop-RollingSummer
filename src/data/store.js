@@ -4,8 +4,8 @@ const useProductStore = create(set => ({
     listOfProducts: [],
     checkoutList: [],
     chekoutTotal: 0,
-    isLoggedIn: true,
-    isAdding: false,
+    isLoggedIn: false,
+   
     
     setListOfProducts: newList => set(state => ({
         listOfProducts: newList
@@ -43,7 +43,7 @@ const useProductStore = create(set => ({
     emtyCheckout: () => set(state => ({
         chekoutTotal: 0,
         checkoutList: []
-
+ // lägg till ett p 
     })),
     
     
@@ -53,11 +53,13 @@ const useProductStore = create(set => ({
         )
     })),
    
-    setIsAdding: (bool) => set(state => ({
-        isAadding: bool
+    login:(user, password) => {
+        if(user === "admin" && password === "password") {
+            set({isLoggedIn: true})
+            return true 
+        }
+        return false
     }
-    ))
-
 }))
 
 export {useProductStore}

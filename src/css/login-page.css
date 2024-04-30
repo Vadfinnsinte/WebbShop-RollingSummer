@@ -40,3 +40,13 @@
     border-radius: 5px;
     padding: 0.6em;
 }
+.login-error {
+   visibility: visible;
+   color: rgb(179, 42, 42);
+   margin: 0.2em 0 0 0;
+
+}
+.login-correct {
+   visibility: hidden;
+    margin: 0.2em 0 0 0;
+}
