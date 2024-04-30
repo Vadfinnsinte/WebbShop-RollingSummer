@@ -13,12 +13,12 @@ async function getProducts() {
 }
 
 function withKey(doc) {
-	let id = doc.data()
-	id.key = doc.id  
-	return id
+    let id = doc.data()
+    id.key = doc.id  
+    return id
 }
 async function addProduct(product) {
-	await addDoc(productCollectionRef, product)
+    await addDoc(productCollectionRef, product)
 }
 
 
@@ -29,17 +29,17 @@ async function deleteProduct(key) {
         console.log("deletedProd: ", documentRef);
         await deleteDoc(documentRef)
         
-
+        
     }catch {
         console.log("Gick inte");
     }
 }
 
 async function editProduct(key, updatedProduct) {
-
-	const documentRef = doc(productCollectionRef, key)
-
-	
-	await updateDoc(documentRef, updatedProduct)
+    
+    const documentRef = doc(productCollectionRef, key)
+    
+    
+    await updateDoc(documentRef, updatedProduct)
 }
 export { getProducts, addProduct, deleteProduct, editProduct }

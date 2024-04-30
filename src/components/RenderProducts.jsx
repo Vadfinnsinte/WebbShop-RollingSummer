@@ -69,7 +69,6 @@ const RenderProducts = () => {
                 <h2>{p.name}</h2>
                 <p>{p.price} Kr</p>
                 {/* <p>{p.description}</p> */}
-                <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>
                 {!isLoggedIn && <button className="add-to-cart-btn" onClick={() => addTocheckoutList(p)}>Lägg i kundvagn</button>}
                 {isEdeting === p.key && 
                     <EditProduct product = {p} setIsEdeting={setIsEdeting}/> 

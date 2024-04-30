@@ -5,7 +5,7 @@ const useProductStore = create(set => ({
     checkoutList: [],
     chekoutTotal: 0,
     isLoggedIn: false,
-   
+    
     
     setListOfProducts: newList => set(state => ({
         listOfProducts: newList
@@ -21,7 +21,7 @@ const useProductStore = create(set => ({
         
         console.log(state.checkoutList);
         if (foundProduct && findExistingProduct && foundProduct.name === findExistingProduct.name){
-
+            
             foundProduct ={ ...foundProduct, quantity: foundProduct.quantity + 1}
             return {checkoutList: state.checkoutList.map(produckt => {
                 if (findExistingProduct.name === produckt.name ){
@@ -30,7 +30,7 @@ const useProductStore = create(set => ({
                 else {
                     return produckt
                 }
-             })}
+            })}
         }
         
         else {
@@ -43,7 +43,7 @@ const useProductStore = create(set => ({
     emtyCheckout: () => set(state => ({
         chekoutTotal: 0,
         checkoutList: []
- // lägg till ett p 
+        // lägg till ett p 
     })),
     
     
@@ -52,7 +52,7 @@ const useProductStore = create(set => ({
             (total, prod) => total + parseInt(prod.price) * prod.quantity, 0
         )
     })),
-   
+    
     login:(user, password) => {
         if(user === "admin" && password === "password") {
             set({isLoggedIn: true})

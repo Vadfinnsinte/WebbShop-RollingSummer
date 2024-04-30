@@ -13,13 +13,13 @@ const LogIn = () => {
     const navigate = useNavigate()
     
     const login = useProductStore(state => state.login)
-
+    
     const error = "Vänligen fyll i fältet"
     const isUserValid = () => {
         setValidUser(user !== "");
         setValidPassword(password !== "");
     }
-
+    
     const handleLogIn = () => {
         console.log("hadleLogin: ", "user: ",user, "password: ", password);
         const loggedIn = login(user,password)
@@ -36,29 +36,29 @@ const LogIn = () => {
         if(event.key === "" && validUser)
         handleLogIn()
     }
-
-
+    
+    
     return (
         <main className="login-main">
-            <section>
-                <h1>Logga in</h1>
-            </section>
-            <section className="login-form">
-                <div className="login-label-input">
-                    <label>Användarnamn</label>
-                    <input  onKeyUp={handleEnter} value={user} onChange={(event) => setUser(event.target.value)} onBlur={isUserValid} type="text"></input>
-                    <p className={!validUser ? "login-error" : "login-correct" }> {error}</p>
-                </div>
-                <div className="login-label-input">
-                    <label>Lösenord</label>
-                    <input  onKeyUp={handleEnter} value={password} onBlur={isUserValid} onChange={(event) => setPassword(event.target.value)} type="password" ></input>
-                    <p  className={!validPassword ? "login-error" : "login-correct"}> {error}</p>
-                </div>
-               {/* <NavLink to="/"> */}
-                <button onClick={handleLogIn}>Logga in</button>
-                {/* </NavLink>   */}
-            </section>
-
+        <section>
+        <h1>Logga in</h1>
+        </section>
+        <section className="login-form">
+        <div className="login-label-input">
+        <label>Användarnamn</label>
+        <input  onKeyUp={handleEnter} value={user} onChange={(event) => setUser(event.target.value)} onBlur={isUserValid} type="text"></input>
+        <p className={!validUser ? "login-error" : "login-correct" }> {error}</p>
+        </div>
+        <div className="login-label-input">
+        <label>Lösenord</label>
+        <input  onKeyUp={handleEnter} value={password} onBlur={isUserValid} onChange={(event) => setPassword(event.target.value)} type="password" ></input>
+        <p  className={!validPassword ? "login-error" : "login-correct"}> {error}</p>
+        </div>
+        {/* <NavLink to="/"> */}
+        <button onClick={handleLogIn}>Logga in</button>
+        {/* </NavLink>   */}
+        </section>
+        
         </main>
     )
 }
