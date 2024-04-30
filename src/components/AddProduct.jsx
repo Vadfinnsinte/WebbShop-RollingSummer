@@ -21,8 +21,8 @@ const AddProduct = ( {setIsAdding} ) => {
         picture: ''
     });
 
+    const newProduct = {name: name, picture: picture, description: description, price: price, category: category}
     const handleAddProduct = async (event) => {
-        const newProduct = {name: name, picture: picture, description: description, price: price, category: category}
         
         try {
             await addProduct(newProduct)
@@ -39,7 +39,7 @@ const AddProduct = ( {setIsAdding} ) => {
             setIsAdding(false)
         }
      }
-
+     
      return (
         <section className="add-product-section">
             <div className="add-product-form">
@@ -49,25 +49,25 @@ const AddProduct = ( {setIsAdding} ) => {
             </div>
             <div className="add-product-form">
                 <label>Namn:</label>
-                <input name="name" type="text" value={name} onChange={e => setName(e.target.value)}  onBlur={handleValidation}></input>
+                <input name="name" type="text" value={name} onChange={e => setName(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
                 <p className={errors.name ? 'error' : 'placeholder'}>{errors.name ? errors.name : 'Placeholder text'}</p>
             </div>
             <div className="add-product-form">
                 <label>Kategori:</label>
-                <input name="category" type="text" value={category} onChange={e => setCategory(e.target.value)}  onBlur={handleValidation} ></input>
+                <input name="category" type="text" value={category} onChange={e => setCategory(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)} ></input>
                 <p className={errors.category ? 'error' : 'placeholder'}>{errors.category ? errors.category : 'Placeholder text'}</p>
             </div>
             <div className="add-product-form">
                 <label>Pris:</label>
-                <input name="price" type="number" value={price} onChange={e => setPrice(e.target.value)}  onBlur={handleValidation}></input>
+                <input name="price" type="number" value={price} onChange={e => setPrice(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
                 <p className={errors.price ? 'error' : 'placeholder'}>{errors.price ? errors.price : 'Placeholder text'}</p>
             </div>
             <div className="add-product-form">
                 <label>Beskrivning:</label>
-                <input name="description" type="text" value={description} onChange={e => setDescription(e.target.value)}  onBlur={handleValidation} ></input>
+                <input name="description" type="text" value={description} onChange={e => setDescription(e.target.value)}  onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
                 <p className={errors.description ? 'error' : 'placeholder'}>{errors.description ? errors.description : 'Placeholder text'}</p>
             </div>
-            <button className="add-btn" onClick={handleAddProduct}>Spara</button>
+            <button disabled= {!newProduct.name || !newProduct.picture || !newProduct.description || !newProduct.category || !newProduct.price} className="add-btn" onClick={handleAddProduct}>Spara</button>
             <button className="add-btn" onClick={() => setIsAdding(false)}>Avbryt</button>
            </section>
      )

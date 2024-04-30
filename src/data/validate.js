@@ -4,28 +4,28 @@ export const handleValidation = (event, errors, setErrors) => {
     let error = ""
     switch (name) {
         case 'name':
-            error = value.trim() === '' ? 'Namnet är obligatoriskt' : '';
+            error = value.trim() === '' ? 'Vänligen fyll i namnet' : '';
             break;
         case 'picture':
-            error = value.trim() === '' ? 'Bildlänk är obligatorisk' : '';
+            error = value.trim() === '' ? 'Vänligen fyll i en bildlänk' : '';
             break;
             case 'description':
-             error = value.trim() === ''? 'Beskrivning är obligatoriskt' : '';
+             error = value.trim() === ''? 'Vänligen skriv en beskrivning' : '';
             break;
 
             case 'price':
-             error = value.trim() === ''? 'Priset är obligatorisk' : '' ;
+             error = value.trim() === ''? 'Vänligen fyll i priset' : '' ;
             break;  
             case 'category':
-                error = value.trim() === ''? 'typ av mat är obligatorisk' : '';
+                error = value.trim() === ''? 'Vänligen fyll i kategorin' : '';
                break;
 
         default:
             break;
     }
-
-     setErrors(prevErrors => ({
-         ...prevErrors,
-         [name]: error
-     }));
+    setErrors(prevErrors => ({
+        ...prevErrors,
+        [name]: error
+    }));
+   
  }

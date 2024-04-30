@@ -21,8 +21,8 @@ const EditProduct = ({product, setIsEdeting}) => {
     });
 
 
+    const updatedProduct = { name, picture, description, price, category}
     const handleEditSave = async () => {
-        const updatedProduct = { name, picture, description, price, category}
         try {
             await editProduct(product.key, updatedProduct)
             const updatedProductList = await getProducts()
@@ -63,7 +63,7 @@ const EditProduct = ({product, setIsEdeting}) => {
             <input className={errors.picture ? "input-error" : "input-correct" } name="description" type="text" value={description} onChange={e => setDescription(e.target.value)} onBlur={(e) => handleValidation(e, errors, setErrors)}></input>
             <p className={errors.description ? 'error' : 'placeholder'}>{errors.description ? errors.description : 'Placeholder text'}</p>
         </div>
-        <button className="add-btn" onClick={handleEditSave} >Spara</button>
+        <button disabled= {!updatedProduct.name || !updatedProduct.picture || !updatedProduct.description || !updatedProduct.category || !updatedProduct.price} className="add-btn" onClick={handleEditSave} >Spara</button>
         <button className="add-btn" onClick={() => setIsEdeting(false)}>Avbryt</button>
        </section>
     )
