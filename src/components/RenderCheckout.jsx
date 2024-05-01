@@ -1,6 +1,8 @@
 import { useProductStore } from "../data/store"
 import "../css/checkout.css"
 import { useEffect } from "react"
+import arrow from "../assets/arrow.svg"
+import { NavLink } from "react-router-dom"
 
 const RenderChecout = () => {
     const {checkoutList,chekoutTotal, emptyCheckout, removeFromCheckout, addToCheckoutTotal, addToCheckoutUnits} = useProductStore(state => ({
@@ -18,6 +20,11 @@ const RenderChecout = () => {
     }, [checkoutList])
 
     return (
+        <main>
+        <NavLink to={"/"}>
+            <img className="arrow-icon" src={arrow}/>
+            
+            </NavLink>
         <div className="checkout-layout">
         <h1>Varukorgen</h1>
         {/* <p>WOW, such empty!</p>
@@ -47,6 +54,7 @@ const RenderChecout = () => {
     
     
     </div>
+        </main>
 )
 
 }
