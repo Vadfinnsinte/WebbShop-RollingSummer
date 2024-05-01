@@ -45,6 +45,27 @@
     object-fit: contain;
     grid-row: span 3;
 }
+.change-units {
+    display: grid;
+    grid-template-columns:  5em;
+}
+.units {
+    margin-bottom: 0;
+    /* background-color: #C4EF67; */
+}
+.units-icons {
+    background-color: #C4EF67;
+    margin: 0 0 1em 0;
+    font-size: 12px;
+    display: flex;
+    /* max-width: 5em; */
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.units-icons p {
+    margin: 0.2em 1em 0.3em 1em;
+}
 .checkout-total-section {
     place-self: center;
     display: flex;

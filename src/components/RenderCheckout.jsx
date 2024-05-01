@@ -1,33 +1,46 @@
 import { useProductStore } from "../data/store"
 import "../css/checkout.css"
+import { useEffect } from "react"
 
 const RenderChecout = () => {
-    const {checkoutList,chekoutTotal, emtyCheckout} = useProductStore(state => ({
+    const {checkoutList,chekoutTotal, emptyCheckout, removeFromCheckout, addToCheckoutTotal, addToCheckoutUnits} = useProductStore(state => ({
         checkoutList: state.checkoutList,
         chekoutTotal: state.chekoutTotal,
-        emtyCheckout: state.emtyCheckout
+        emptyCheckout: state.emptyCheckout,
+        removeFromCheckout: state.removeFromCheckout,
+        addToCheckoutTotal: state.addToCheckoutTotal,
+        addToCheckoutUnits: state.addToCheckoutUnits
+
     }))
     
-    
-    
-    console.log(checkoutList);
+    useEffect(() => {
+        addToCheckoutTotal()
+    }, [checkoutList])
+
     return (
         <div className="checkout-layout">
         <h1>Varukorgen</h1>
         {/* <p>WOW, such empty!</p>
-    <p>total: </p> */}
+     */}
     {checkoutList.map((prod) => (
         <section className="checkout-card" key={prod.key}>
-        <img className="checkout-img" src={prod.picture} />
-        <h4>{prod.name}</h4>
-        <p>{prod.price} Kr</p>
-        <p>Antal: {prod.quantity} </p>
+             <img className="checkout-img" src={prod.picture} />
+             <h4>{prod.name}</h4>
+             <p>{prod.price} Kr</p>
+         <div className="change-units">
+            <p className="units">Antal: {prod.quantity} </p>
+             <div className="units-icons">
+                  <p onClick={ () => removeFromCheckout(prod.key)}  >➖</p>
+                  <p onClick={() =>  addToCheckoutUnits(prod.key)} >➕</p>
+        
+             </div>
+        </div>
         {/* //TODO: tabortknapp */}
         </section>
     ))}
     <section className="checkout-total-section">
     <p>Totalt att betala: {chekoutTotal} Kr</p>
-    <button className="checkout-buy-btn" onClick={emtyCheckout}>Slutför köp</button>
+    <button className="checkout-buy-btn" onClick={emptyCheckout}>Slutför köp</button>
     
     </section>
     

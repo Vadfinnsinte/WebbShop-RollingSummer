@@ -15,11 +15,7 @@ const useProductStore = create(set => ({
         
         let foundProduct = state.listOfProducts.find((product) => product.name === prod.name)
         let findExistingProduct = state.checkoutList.find((ExistingProdut => ExistingProdut.name === prod.name))
-        
-        console.log(foundProduct.name, foundProduct.quantity);
-        
-        
-        console.log(state.checkoutList);
+       
         if (foundProduct && findExistingProduct && foundProduct.name === findExistingProduct.name){
             
             foundProduct ={ ...foundProduct, quantity: foundProduct.quantity + 1}
@@ -40,7 +36,31 @@ const useProductStore = create(set => ({
         }
         
     })),
-    emtyCheckout: () => set(state => ({
+    removeFromCheckout: (key) => set(state => {
+        const prodToRemove = state.checkoutList.map((prod) => {
+            if (prod.key === key && prod.quantity > 1 ){
+                return {...prod, quantity: prod.quantity -1}
+            } else if (prod.key === key && prod.quantity === 1) {
+                return null
+            } else {
+                return prod
+            }
+        })
+        const filterProdToRemove = prodToRemove.filter(prod => prod !== null)
+        return{checkoutList: filterProdToRemove}
+        
+    }) ,
+    addToCheckoutUnits: (key) => set((state => {
+        const addUnit = state.checkoutList.map((prod => {
+            if (prod.key === key) {
+                return {...prod, quantity: prod.quantity +1}
+            }
+            else return prod
+        }))
+        return {checkoutList: addUnit}
+    })),
+
+    emptyCheckout: () => set(state => ({
         chekoutTotal: 0,
         checkoutList: []
         // lägg till ett p 
