@@ -40,6 +40,7 @@ const LogIn = () => {
     
     return (
         <main className="login-main">
+        <div className="login-placement">   
         <section>
         <h1>Logga in</h1>
         </section>
@@ -59,6 +60,7 @@ const LogIn = () => {
         {/* </NavLink>   */}
         </section>
         
+            </div> 
         </main>
     )
 }

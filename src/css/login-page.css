@@ -12,11 +12,15 @@
 }
 
 .login-main{
+    display: grid;
+}
+.login-placement {
     background-color: var(--bg-color-header);
     color: rgb(216, 214, 214);
     font-family: var(--font-family-sister);
     padding: 2em;
     margin: 4em 1em;
+    place-self: center;
 }
 .login-form button {
     border-radius: 5px;
