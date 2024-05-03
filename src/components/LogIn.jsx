@@ -21,10 +21,10 @@ const LogIn = () => {
     }
     
     const handleLogIn = () => {
-        console.log("hadleLogin: ", "user: ",user, "password: ", password);
+         
         const loggedIn = login(user,password)
         // const loggedIn = useProductStore.getState().login(user, password)
-        console.log("LoggedIn: ", loggedIn);
+        
         if(loggedIn) {
             navigate("/")
         }

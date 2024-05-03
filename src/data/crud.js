@@ -8,6 +8,7 @@ const productCollectionRef = collection(db, collectionName)
 async function getProducts() {
     const productCollection = productCollectionRef
     const collectionSnapshot = await getDocs(productCollection)
+    console.log(collectionSnapshot);
     const productList = collectionSnapshot.docs.map(doc => withKey(doc))
     return productList
 }

@@ -1,5 +1,6 @@
 import { create } from "zustand";
 
+
 const useProductStore = create(set => ({
     listOfProducts: [],
     checkoutList: [],
@@ -36,6 +37,37 @@ const useProductStore = create(set => ({
         }
         
     })),
+    sortProducts: (sortValue) => set(state => {
+        const sortedProducts = [... state.listOfProducts]
+        switch(sortValue){
+            case "descending":
+                sortedProducts.sort((a,b) => b.price - a.price)
+            break
+            case "ascending":
+                sortedProducts.sort((a,b) => a.price -b.price)
+            break
+            case "name-a-ö": 
+                sortedProducts.sort((a, b) => a.name.localeCompare(b.name))
+            break
+            case "name-ö-a":
+                sortedProducts.sort((a, b) => b.name.localeCompare(a.name))
+            break
+            case "all":
+                 return state // kör getProducts()
+            default: 
+                break
+        }
+        return {listOfProducts: sortedProducts}
+
+    }),
+
+    searchProduct: (value) => set(state => {
+       const searchValue = value.toLowerCase() 
+       const matchingProduct = state.listOfProducts.filter(prod => prod.name.includes(searchValue) || prod.category.includes(searchValue))
+       return {listOfProducts: matchingProduct}
+
+    }),
+
     removeFromCheckout: (key) => set(state => {
         const prodToRemove = state.checkoutList.map((prod) => {
             if (prod.key === key && prod.quantity > 1 ){
@@ -50,6 +82,10 @@ const useProductStore = create(set => ({
         return{checkoutList: filterProdToRemove}
         
     }) ,
+    deleteFromCheckout: (key) => set(state => {
+        const prodToremove = state.checkoutList.filter((prod) => prod.key !== key)
+        return {checkoutList: prodToremove}
+    }),
     addToCheckoutUnits: (key) => set((state => {
         const addUnit = state.checkoutList.map((prod => {
             if (prod.key === key) {
@@ -63,7 +99,7 @@ const useProductStore = create(set => ({
     emptyCheckout: () => set(state => ({
         chekoutTotal: 0,
         checkoutList: []
-        // lägg till ett p 
+        
     })),
     
     

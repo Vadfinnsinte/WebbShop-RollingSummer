@@ -4,25 +4,28 @@ import { useProductStore } from "../data/store"
 import "../css/product-layout.css"
 import LogInIcon from "../assets/login-icon.png"
 import searchLogo from "../assets/Search.svg"
-import filterIcon from "../assets/filter.svg"
+import cross from "../assets/kryss.svg"
 import { NavLink } from "react-router-dom"
 import AddProduct from "./AddProduct"
 import EditProduct from "./EditProduct"
 
+
 const RenderProducts = () => {
-    
+    const [inputValue, setInputValue] = useState("")
     const [isAdding, setIsAdding] = useState(false)
     const [isEdeting, setIsEdeting] = useState(null)
-    const {listOfProducts, setListOfProducts, addTocheckoutList,  isLoggedIn} = useProductStore(state => ({
+    const [showSearchInput, setShowSearchInput] = useState(false)
+    const {listOfProducts, setListOfProducts, addTocheckoutList,  isLoggedIn, sortProducts} = useProductStore(state => ({
         listOfProducts: state.listOfProducts,
         setListOfProducts: state.setListOfProducts,
         addTocheckoutList: state.addTocheckoutList,
         isLoggedIn: state.isLoggedIn,
-        
+        sortProducts: state.sortProducts,
     }))
     
     
     useEffect(() => {
+        
         const fetchProducts = async () => {
             try {
                 let testVariable = await getProducts()
@@ -34,8 +37,12 @@ const RenderProducts = () => {
         }
         fetchProducts()
     }, [])
+
     
-    // TODO: Lääg till function för filtrering. 
+    
+    const matchingProductList = listOfProducts.filter(prod => prod.name.toLowerCase().includes(inputValue.toLowerCase()) || prod.category.toLowerCase().includes(inputValue.toLowerCase()))
+    
+    // console.log("matcingList: ", matchingProductList, " listOfProd:", listOfProducts);
     
     const handelDeleteProduct = async (prod) => {
         try {
@@ -48,17 +55,46 @@ const RenderProducts = () => {
             console.log("något gick fel");
         }
     }
+    const handleSearch = () => {
+        if(!showSearchInput) {
+            setShowSearchInput(true)
+        } else {
+            setShowSearchInput(false)
+        }
+    }
+    const handleSort = (event) => {
+        let sortValue = event.target.value
+        sortProducts(sortValue)
+    }
     
     return (
         <>
         <main className="main-product-employee">
+        <div className="filter-bar">
+        <div className="search-input">
+        <img className="filter-bar-logos" src={!showSearchInput ? searchLogo : cross} onClick={() => handleSearch()} />
+        {showSearchInput && <input className="search-input" type="text" placeholder="Sök" onChange={(e) => setInputValue(e.target.value)}></input> }
+        </div>
+        {isLoggedIn ? (
+        <button className="log-out-btn" onClick={() => useProductStore.setState({ isLoggedIn: false })}>Logga ut</button>
+        ) : (
+         !showSearchInput && 
+        <select onChange={handleSort} className="dropdown">
+            <option value="all" >Sort By:</option>
+            <option value="descending">Pris fallande</option>
+            <option value="ascending">Pris stigande</option>
+            <option value="name-a-ö">Namn A-Ö</option>
+            <option value="name-ö-a">Namn Ö-A</option>
+        </select>
+        )} 
+        </div> 
         {isLoggedIn && <button className="add-product-btn" disabled={isAdding} onClick={() => setIsAdding(true)}>Lägg till produkt</button>}
         <div className="product-card-layout">
         {isAdding && 
             
             <AddProduct setIsAdding={setIsAdding} />
         }
-        {listOfProducts.map (p => (
+        {matchingProductList.map (p => (
             <section className="product-card" key={p.key} >
             {isLoggedIn && <
                 div className="edit-icons">
@@ -91,15 +127,4 @@ const RenderProducts = () => {
     
     
     
-    {/* <div className="filter-bar">
-    <div className="search-input">
-    {showSearchInput ? <input className="search-input" type="text"></input> : <img className="filter-bar-logos" src={searchLogo} onClick={() => setShowSearchInput(true)} />}
-    </div>
-    <select className="dropdown" onChange={filterProducts(event.target.value)}>
-    <option>Alla produkter</option>
-    <option>Rollerblades</option>
-    <option>Skateboards</option>
-    <option>Tillbehör</option>
-    </select>
-    <img className="filter-bar-logos" src={filterIcon} /> 
-</div>  */}
+    

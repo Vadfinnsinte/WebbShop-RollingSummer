@@ -24,7 +24,13 @@ body {
     grid-template-columns: 2fr 1fr;
     font-family: var(--font-family-sister);
     color: var(--accent-color);
-    padding: 1em;
+    /* padding: 1em; */
+    padding: 0.5em;
+}
+.navlink {
+    text-decoration: none;
+    color: var(--accent-color);
+    display: grid;
 }
 .RollingSummer-placement {
     margin-top: 0.6em;
@@ -33,12 +39,15 @@ body {
 .logo-name {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-left: 1.3em;
+    margin-left: 1.6em;
+   
 }
+
 .logo {
     width: 60px;
     height: auto;
     margin: 0;
+    place-self: end;
     
 }
 .cart-icon-navlink{
@@ -57,3 +66,26 @@ body {
     width: 35px;
 }
 
+@media (min-width: 550px) {
+    .header {
+        padding: 0.5em;
+    }
+    .RollingSummer-placement {
+        font-size: 30px;
+    }
+    .logo-name {
+        justify-self: end;
+    }
+    .logo {
+        place-self: end;
+        width: 70px;
+    }
+    .cart-icon {
+        margin-right: 2.4em;
+    }
+}
+@media (min-width: 900px) {
+    .logo-name {
+       margin-right: 12%;
+    }
+} 

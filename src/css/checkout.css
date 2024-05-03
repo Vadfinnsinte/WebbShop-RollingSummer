@@ -21,6 +21,7 @@
     font-family: var(--font-family-sister);
 }
 
+
 .checkout-layout h1, .checkout-layout p {
     place-self: center;
 }
@@ -39,6 +40,11 @@
 .checkout-card > *{
     margin: 0;
 }
+.checkout-card p, .checkout-total-section p  {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 .checkout-img {
     width: 101px;
@@ -49,23 +55,42 @@
 .change-units {
     display: grid;
     grid-template-columns:  5em;
+    grid-column: 2;
+    grid-row: 4;
+    justify-self: center;
 }
 .units {
-    margin-bottom: 0;
-    /* background-color: #C4EF67; */
+    margin: 0;
 }
 .units-icons {
     background-color: #C4EF67;
     margin: 0 0 1em 0;
     font-size: 12px;
     display: flex;
-    /* max-width: 5em; */
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    border: 2px solid black;
+    height: 2.1em;
 }
 .units-icons p {
     margin: 0.2em 1em 0.3em 1em;
+}
+.remove-btn {
+    grid-column: 1;
+    background-color: var(--bg-color-header);
+    color: var(--accent-color);
+    font-family: var(--font-family-sister);
+    padding: 0.3em 0.5em 0.3em 0.5em;
+    border-radius: 10px;
+    margin-top: 0.8em;
+    margin-left: 1em;
+    
+    width: 5em;
+    align-self: center;
+    text-align: center;
+    height: 2.1em;
+    border: 2px solid var(--accent-color);
 }
 .arrow-icon {
     height: 20px;
@@ -88,10 +113,20 @@
     box-shadow: 0px 2px 10px 2px #606152;
     cursor: pointer;
 }
-/* @media (min-width: 510px) {
+@media (min-width: 610px) {
     .checkout-layout {
         grid-template-columns: repeat(2, 1fr);
         margin: 2em;
-    } */
+        
+    } 
+    .checkout-h1 {
+        grid-column: span 2;
+    }
+    .checkout-total-section {
+        grid-column: span 2;
+    }
     
-    /* } */
+}
+/* @media (min-width: 700px) {
+
+} */

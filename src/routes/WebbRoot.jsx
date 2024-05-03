@@ -13,10 +13,12 @@ const WebbRoot = () => {
     return (
         <>
         <header className="header"> 
+            <NavLink className="navlink" to="/">
         <section className="logo-name">
             <img className="logo" src={logo} />
             <h2 className="RollingSummer-placement">RollingSummer</h2>
         </section>
+            </NavLink>
          {/* <img className="cart-icon" src={cart} /> */}
          <NavLink to="/varukorg" className="cart-icon-navlink" >
             <img className="cart-icon" src={cart} onClick={addToCheckoutTotal}/>
