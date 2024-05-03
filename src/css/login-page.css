@@ -26,6 +26,7 @@
     border-radius: 5px;
     padding: 0.4em;
     background-color: var(--accent-color);
+    font-family: var(--font-family-sister);
 }
 
 .login-form button:hover {

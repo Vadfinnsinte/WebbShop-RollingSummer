@@ -9,6 +9,9 @@
 * {
     box-sizing: border-box;
 }
+.main-layout {
+    display: grid;
+}
 
 .checkout-layout {
     margin: 0.5em;
@@ -92,9 +95,13 @@
     height: 2.1em;
     border: 2px solid var(--accent-color);
 }
+.remove-btn:hover {
+    box-shadow: 0px 2px 10px 2px #606152;
+    cursor: pointer;
+}
 .arrow-icon {
     height: 20px;
-    margin: 1em 0 0 1.2em;
+    margin: 1em 0 0 1.5em;
 }
 .checkout-total-section {
     place-self: center;
@@ -113,11 +120,16 @@
     box-shadow: 0px 2px 10px 2px #606152;
     cursor: pointer;
 }
+.emnty-cart {
+    font-family: var(--font-family-sister);
+    font-size: 30px;
+    grid-column: span 2;
+}
 @media (min-width: 610px) {
     .checkout-layout {
+        max-width: 600px;
         grid-template-columns: repeat(2, 1fr);
-        margin: 2em;
-        
+        place-self: center;
     } 
     .checkout-h1 {
         grid-column: span 2;
@@ -125,8 +137,18 @@
     .checkout-total-section {
         grid-column: span 2;
     }
-    
+    .arrow-icon {
+        margin-left: 10%;
+    }
 }
-/* @media (min-width: 700px) {
+@media (min-width: 710px) {
+    .arrow-icon {
+        margin-left: 20%;
+    }
 
-} */
+}
+@media (min-width: 1010px) {
+    .arrow-icon {
+        margin-left: 28%;
+    }
+}

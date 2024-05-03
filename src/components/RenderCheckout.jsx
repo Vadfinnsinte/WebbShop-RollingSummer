@@ -22,14 +22,14 @@ const RenderChecout = () => {
     }, [checkoutList])
 
     return (
-        <main>
+        <main className="main-layout">
         <NavLink to={"/"}>
             <img className="arrow-icon" src={arrow}/>
             
             </NavLink>
         <div className="checkout-layout">
         <h1 className="checkout-h1">Varukorgen</h1>
-        { checkoutLength < 1 ? <p>WOW, such empty!</p> :
+        { checkoutLength < 1 ? <p className="emnty-cart">WOW, such empty!</p> :
     checkoutList.map((prod) => (
         <section className="checkout-card" key={prod.key}>
         <img className="checkout-img" src={prod.picture} />

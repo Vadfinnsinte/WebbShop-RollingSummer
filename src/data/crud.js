@@ -31,7 +31,7 @@ async function deleteProduct(key) {
         
         
     }catch {
-        console.log("Gick inte");
+        console.log("Delete misslyckad");
     }
 }
 
