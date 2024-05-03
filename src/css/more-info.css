@@ -75,7 +75,7 @@
     }
 
 }
-@media (max-height: 550px) {
+@media (max-height: 800px) {
     .product-info {
         top: 43%;
     }
@@ -87,7 +87,7 @@
         margin: 0.2em;
     }
     .more-info-picture {
-        height: 100px;
+        height: 120px;
     }
     .prod-nr {
         display: none;
