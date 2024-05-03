@@ -86,12 +86,21 @@ const RenderProducts = () => {
         <main className="main-product-employee">
         <div className="filter-bar">
         <div className="search-input">
-        <img className="filter-bar-logos" src={!showSearchInput ? searchLogo : cross} onClick={() => handleSearch()} />
-        {showSearchInput && <input className="search-input" type="text" placeholder="Sök" onChange={(e) => setInputValue(e.target.value)}></input> }
+        <img className="filter-bar-logos" 
+        src={!showSearchInput ? searchLogo : cross}
+         onClick={() => handleSearch()} />
+        {showSearchInput && 
+        <input 
+        className="search-input" 
+        type="text" 
+        placeholder="Sök" 
+        onChange={(e) => setInputValue(e.target.value)}></input> }
         </div>
         
         {isLoggedIn ? (
-        <button className="log-out-btn" onClick={() => useProductStore.setState({ isLoggedIn: false })}>Logga ut</button>
+        <button 
+        className="log-out-btn"
+        onClick={() => useProductStore.setState({ isLoggedIn: false })}>Logga ut</button>
         ) : (
          !showSearchInput && 
         <select onChange={handleSort} className="dropdown">
@@ -104,7 +113,11 @@ const RenderProducts = () => {
         )} 
         {showPopUp && <OrderPopUp/> }
         </div> 
-        {isLoggedIn && <button className="add-product-btn" disabled={isAdding} onClick={() => setIsAdding(true)}>Lägg till produkt</button>}
+        {isLoggedIn && 
+        <button 
+        className="add-product-btn" 
+        disabled={isAdding} 
+        onClick={() => setIsAdding(true)}>Lägg till produkt</button>}
         <div className="product-card-layout">
         {isAdding && 
             
@@ -112,23 +125,30 @@ const RenderProducts = () => {
         }
         {matchingProductList.map (p => (
             <section className="product-card" key={p.key} >
-                  {showMoreInfo === p && <ShowProductInfo prod={showMoreInfo} setShowMoreInfo={setShowMoreInfo} handlePopUp={handlePopUp} />}
+                  {showMoreInfo === p && <ShowProductInfo 
+                  prod={showMoreInfo} 
+                  setShowMoreInfo={setShowMoreInfo} 
+                  handlePopUp={handlePopUp} />}
             {isLoggedIn && <
                 div className="edit-icons">
                 <p onClick={() => handelDeleteProduct(p)}> 🗑️</p>
                 <p onClick={() => setIsEdeting(p.key)}>🖊️</p>
                 </div>}
-                <img className="product-img" key={p.key} src={p.picture} />
+                <img className="product-img"
+                 key={p.key} 
+                 src={p.picture} />
                 <h2>{p.name}</h2>
                 <p className="more-info" onClick={() => handleMoreInfo(p)} >Mer information:</p>
                 <p className="p-price">{p.price} Kr</p>
-                {!isLoggedIn && <button className="add-to-cart-btn" onClick={() => { addTocheckoutList(p); handlePopUp(); }}>Lägg i kundvagn</button>}
+                {!isLoggedIn && 
+                <button 
+                className="add-to-cart-btn" onClick={() => { addTocheckoutList(p); 
+                handlePopUp(); }}
+                >Lägg i kundvagn</button>}
                 {isEdeting === p.key && 
                     <EditProduct product = {p} setIsEdeting={setIsEdeting}/> 
                 }
-               
                 </section>
-                
                 
             ))}
             </div>

@@ -8,7 +8,6 @@ const productCollectionRef = collection(db, collectionName)
 async function getProducts() {
     const productCollection = productCollectionRef
     const collectionSnapshot = await getDocs(productCollection)
-    console.log(collectionSnapshot);
     const productList = collectionSnapshot.docs.map(doc => withKey(doc))
     return productList
 }
@@ -25,9 +24,9 @@ async function addProduct(product) {
 
 async function deleteProduct(key) {
     try {
-        console.log("key", key);
+        
         const documentRef = doc(productCollectionRef, key)
-        console.log("deletedProd: ", documentRef);
+        
         await deleteDoc(documentRef)
         
         
