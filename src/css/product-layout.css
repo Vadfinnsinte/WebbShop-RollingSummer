@@ -68,6 +68,15 @@
     font-weight: 400;
     font-style: normal;
 }
+.p-price {
+    margin-bottom: 0.3em;
+}
+.more-info {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    font-size: 15px;
+    text-decoration: underline;
+}
 .add-to-cart-btn {
     background-color: var(--accent-color);
     font-family: var(--font-family-sister);
@@ -153,6 +162,16 @@
     border: 2px solid var(--accent-color);
     border-radius: 10px;
     padding: 0.3em 0.5em 0.3em 0.5em;
+}
+.add-pop-up {
+    position: fixed;
+    background-color: #1E1E1E;
+    color: var(--accent-color);
+    font-family: var(--font-family-sister);
+    padding: 2em;
+    border-radius: 10px;
+    margin-top: 6em;
+    z-index: 1;
 }
     
 @media (min-width: 650px) {

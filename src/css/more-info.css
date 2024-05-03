@@ -1,0 +1,69 @@
+:root {
+    --bg-color-header: #1E1E1E; 
+    --accent-color: #C4EF67;
+    --font-family-sister: "Love Ya Like A Sister";
+    --font-family-kranky:  "Kranky", serif;
+    --body-bg-color: #E4E6C4;
+    --error-color: rgb(235, 133, 133);
+}
+
+* {
+    box-sizing: border-box;
+}
+.product-info {
+    background-color: whitesmoke;
+    position: fixed;
+    margin: 2em;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em 1.5em 1.5em 1.5em ;
+    top: 47%; 
+    left: 50%; 
+    transform: translate(-60%, -50%); 
+    color: var(--body-bg-color);
+    color: var(--bg-color-header);
+}
+.product-info h1 {
+    font-family: var(--font-family-sister);
+    font-size: 22px;
+    place-self: center;
+    margin-bottom: 0.5em;
+    margin-top: 0.4em;
+}
+.product-info button {
+    background-color: var(--accent-color);
+    font-family: var(--font-family-sister);
+    padding: 0.5em;
+    border-radius: 10px;
+    margin-top: 1em;
+    place-self: center;
+}
+.prod-nr {
+    font-size: 13px;
+}
+.product-info p {
+    margin-bottom: 0.4em;
+}
+
+.close-icon {
+    width: 13px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+.more-info-picture {
+    width: 260px;
+    border-radius: 20px;
+    place-self: center;
+}
+@media (min-width: 550px) {
+    .more-info-picture {
+        width: 360px;
+        border-radius: 20px;
+    } 
+    
+    .product-info {
+        transform: translate(-50%, -50%);
+    }
+
+}
