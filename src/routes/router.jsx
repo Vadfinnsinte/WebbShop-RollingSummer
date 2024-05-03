@@ -18,14 +18,6 @@ const router = createHashRouter([
             element: <LogIn/>
         },
         {
-            path: "/produktsida-admin",
-            element: ""
-        }, //TODO, tabort
-        {
-            path: "/produkt",
-            element: ""
-        },
-        {
             path: "/",
             element: <RenderProducts/>
         }

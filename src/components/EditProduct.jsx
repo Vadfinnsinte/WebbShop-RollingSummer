@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { editProduct, getProducts } from "../data/crud"
-import { useProductStore  } from "../data/store"
+import { useProductStore  } from "../data/store.js"
 import { handleValidation } from "../data/validate.js"
 
 const EditProduct = ({product, setIsEdeting}) => {

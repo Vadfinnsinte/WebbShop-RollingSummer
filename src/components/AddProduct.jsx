@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { useProductStore } from "../data/store"
-import { addProduct,getProducts } from "../data/crud"
+import { useProductStore } from "../data/store.js"
+import { addProduct,getProducts } from "../data/crud.js"
 import { handleValidation } from "../data/validate.js"
 
 

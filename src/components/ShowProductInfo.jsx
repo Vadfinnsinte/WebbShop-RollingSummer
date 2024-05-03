@@ -1,6 +1,6 @@
 import close from "../assets/kryss.svg"
 import "../css/more-info.css"
-import { useProductStore } from "../data/store"
+import { useProductStore } from "../data/store.js"
 
 const ShowProductInfo  =( {prod, setShowMoreInfo, handlePopUp}) => {
 

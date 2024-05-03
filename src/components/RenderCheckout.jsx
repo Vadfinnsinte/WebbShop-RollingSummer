@@ -14,7 +14,8 @@ const RenderChecout = () => {
         addToCheckoutUnits: state.addToCheckoutUnits,
         deleteFromCheckout: state.deleteFromCheckout
     }))
-    // const checkoutLegnth = checkoutList
+    const checkoutLength = checkoutList.length
+
     
     useEffect(() => {
         addToCheckoutTotal()
@@ -28,27 +29,27 @@ const RenderChecout = () => {
             </NavLink>
         <div className="checkout-layout">
         <h1 className="checkout-h1">Varukorgen</h1>
-        {/* <p>WOW, such empty!</p>
-     */}
-    {checkoutList.map((prod) => (
+        { checkoutLength < 1 ? <p>WOW, such empty!</p> :
+    checkoutList.map((prod) => (
         <section className="checkout-card" key={prod.key}>
-             <img className="checkout-img" src={prod.picture} />
-             <h4>{prod.name}</h4>
-             <p>{prod.price} Kr</p>
-         <div className="change-units">
-            <p className="units">Antal: {prod.quantity} </p>
-             <div className="units-icons">
-                  <p onClick={ () => removeFromCheckout(prod.key)} >➖</p>
-                  <p onClick={() =>  addToCheckoutUnits(prod.key)} >➕</p>
-             </div>
+        <img className="checkout-img" src={prod.picture} />
+        <h4>{prod.name}</h4>
+        <p>{prod.price} Kr</p>
+        <div className="change-units">
+        <p className="units">Antal: {prod.quantity} </p>
+        <div className="units-icons">
+        <p onClick={ () => removeFromCheckout(prod.key)} >➖</p>
+        <p onClick={() =>  addToCheckoutUnits(prod.key)} >➕</p>
         </div>
-             <button className="remove-btn" onClick={() => deleteFromCheckout(prod.key)} >Ta bort</button>
-       
+        </div>
+        <button className="remove-btn" onClick={() => deleteFromCheckout(prod.key)} >Ta bort</button>
+        
         </section>
-    ))}
+    ))
+}
     <section className="checkout-total-section">
     <p>Totalt att betala: {chekoutTotal} Kr</p>
-    <button className="checkout-buy-btn" onClick={emptyCheckout}>Slutför köp</button>
+    <button disabled={checkoutLength < 1} className="checkout-buy-btn" onClick={emptyCheckout}>Slutför köp</button>
     
     </section>
     

@@ -7,10 +7,10 @@ import LogInIcon from "../assets/login-icon.png"
 import searchLogo from "../assets/Search.svg"
 import cross from "../assets/kryss.svg"
 import { NavLink } from "react-router-dom"
-import AddProduct from "./AddProduct"
-import EditProduct from "./EditProduct"
-import OrderPopUp from "./OrderPopUp"
-import ShowProductInfo from "./ShowProductInfo"
+import AddProduct from "./AddProduct.jsx"
+import EditProduct from "./EditProduct.jsx"
+import OrderPopUp from "./OrderPopUp.jsx"
+import ShowProductInfo from "./ShowProductInfo.jsx"
 
 
 const RenderProducts = () => {
@@ -47,7 +47,7 @@ const RenderProducts = () => {
     
     const matchingProductList = listOfProducts.filter(prod => prod.name.toLowerCase().includes(inputValue.toLowerCase()) || prod.category.toLowerCase().includes(inputValue.toLowerCase()))
     
-    // console.log("matcingList: ", matchingProductList, " listOfProd:", listOfProducts);
+
     
     const handelDeleteProduct = async (prod) => {
         try {
