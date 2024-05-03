@@ -75,3 +75,22 @@
     }
 
 }
+@media (max-height: 550px) {
+    .product-info {
+        top: 43%;
+    }
+    .product-info * {
+        margin: 0.5em;
+    }
+    .product-info p {
+        font-size: 15px;
+        margin: 0.2em;
+    }
+    .more-info-picture {
+        height: 100px;
+    }
+    .prod-nr {
+        display: none;
+    }
+
+}
